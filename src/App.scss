@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+$blue :#213F7D;
+$text-grey: #545F7D;
+
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+body {
+    background-color: #f4f2f2;
+    margin: 0;
+}
+:root{
+    background-color: #f4f2f2;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  // Color
+  $primary-color: #FFFFFF;
+  $first-font-color: #213F7D;
+  $second-font-color: #545F7D;
+  $bg-color: rgba(251, 251, 251, 1);
+  $button-color: #39CDCC;
+  $third-font-color: rgba(84, 95, 125, 0.15);
+  $light-dark-primary-color: rgb(252,252,252);
+  $shadow-color: rgba(0, 0, 0, 0.04);
+  $first-font-color-opac: rgba(33, 63, 125, 0.2);
+  $first-font-color-less-opac: rgba(33, 63, 125, 0.06);
+  $blue-color-opac: rgba(87, 24, 255, 0.1);
+  $first-font-color-opac-01: rgba(33, 63, 125, 0.1);
+  $status-active-background: rgba(57, 205, 98, 0.1);
+  $status-active-color: rgba(57, 205, 98, 1);
+  
+  // Fonts Size
+  $big-font-size: 3rem;
+  $h1-size: 2rem;
+  $h2-size: 1.5rem;
+  $h3-size: 1.25rem;
+  $normal-size: 1rem;
+  $small-size: 0.8rem;
+  $smaller-size: 0.5rem;
+  $font-family: "AvenierNext", sans-serif;
+  $font-WorkSans: 'Work Sans', sans-serif;
+  
+  @font-face {
+    font-family: "AvenierNext";
+    src: local("AvenirNext"),
+     url("./fonts/AvenierNext/AvenirNextLTPro-Regular.otf") format("truetype");
+  }

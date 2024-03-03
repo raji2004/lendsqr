@@ -1,0 +1,35 @@
+@import '../../App.scss';
+
+.container {
+    width: 100%;
+    @include flex(column, center, center);
+    background-color: #f4f2f2;
+
+    .main {
+        width: 100%;
+        @include flex(row, center, center);
+        gap: 20px;
+        background-color: #f4f2f2;
+
+        .content {
+            width: 80%;
+            height: 89vh;
+            @include flex(column, flex-start, flex-start);
+            gap: 20px;
+            background-color: transparent;
+            padding: 3rem 1rem;
+            overflow-x: scroll;
+
+            h1{
+                color: $blue;
+            }
+
+            .cards {
+                @include flex(row, space-between, center);
+                gap: 20px;
+                background-color: transparent;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,75 @@
+@import '../../App.scss';
+
+
+
+
+.login {
+    @include flex(row, space-between, center);
+    padding: 0 50px;
+
+
+
+    .left {
+        @include flex(column, center, center);
+        width: 50%;
+        height: 100vh;
+
+
+        .logo {
+            margin-bottom: 30px;
+            align-self: flex-start;
+        }
+    }
+
+    .right {
+        @include flex(column, center, center);
+        width: 50%;
+        height: 100vh;
+        padding: 0 90px;
+
+        h1 {
+            color: #213F7D;
+            align-self: flex-start;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            color: #545F7D;
+            align-self: flex-start;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #39CDCC;
+            align-self: flex-start;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .login {
+        flex-direction: column;
+        justify-content: baseline;
+        padding: 0 20px;
+        height: 100vh;
+
+        .left {
+            width: 100%;
+            height: fit-content;
+            padding: 20px 10px;
+
+            .img {
+                display: none;
+            }
+        }
+
+        .right {
+            width: 100%;
+            padding: 0 10px;
+            margin-bottom: 70%;
+
+        }
+    }
+}

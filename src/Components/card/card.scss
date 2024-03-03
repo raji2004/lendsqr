@@ -1,0 +1,17 @@
+@import '../../App.scss';
+.card{
+  @include flex(column, space-between, flex-start);
+  width: 13rem;
+  height: 10rem;
+  padding:  1.5rem;
+  background-color: white;
+  border-radius: 4px;
+
+  h4{
+    color: $text-grey;
+  }
+  h2{
+    color: $blue;
+  }
+
+}

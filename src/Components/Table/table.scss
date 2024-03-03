@@ -1,0 +1,115 @@
+@use '../../App.scss' as index;
+
+.table-container {
+    background-color: index.$primary-color;
+    padding: 2rem;
+    width: fit-content;
+    margin-top: 3rem;
+    border-radius: 10px;
+
+    table {
+        background-color: index.$primary-color;
+        color: index.$second-font-color;
+        border-collapse: collapse;
+        box-sizing: border-box;
+
+        thead {
+
+            tr {
+
+                th {
+
+                    font-size: 12px;
+                    line-height: 13px;
+
+                    font-weight: 600;
+                    font-family: index.$font-WorkSans;
+                    text-align: left;
+                    padding: 0 .5rem .5rem 0;
+
+                    .table-data-head-container {
+                        display: flex;
+                        gap: 5px;
+
+                        .table-data-img-container {
+                            img {
+                                width: 13px;
+                                height: 8px;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                z-index: 5;
+                border-bottom: 1px solid index.$first-font-color-opac-01;
+
+                td {
+                    font-size: 14px;
+                    line-height: 14px;
+                    font-family: index.$font-WorkSans;
+                    font-weight: 400;
+                    padding: .2rem 1rem .5rem 0;
+                    .status{
+                        border-radius: 10px;
+                        padding: .2rem .5rem;
+                        font-size: small;
+                        text-align: center;
+                    }
+                }
+
+
+                td:nth-last-child(2) {
+                    p {
+                        background-color: index.$status-active-background;
+                        padding: .5rem;
+                        border-radius: 40%;
+                        width: 70px;
+                        text-align: center;
+                        font-size: 14px;
+                        color: index.$status-active-color;
+                        line-height: 16px;
+                        font-weight: 400;
+                    }
+
+                }
+            }
+
+            tr:last-child {
+                border-bottom: none;
+            }
+        }
+
+
+    }
+
+}
+
+.pagination {
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    color: index.$second-font-color;
+
+    li {
+        font-size: 15px;
+        line-height: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    li:first-child,
+    li:last-child {
+        background-color: index.$first-font-color-opac-01;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
