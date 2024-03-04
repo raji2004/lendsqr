@@ -1,17 +1,28 @@
 @import '../../App.scss';
-.card{
+
+.cardwrapper {
   @include flex(column, space-between, flex-start);
   width: 13rem;
   height: 10rem;
-  padding:  1.5rem;
+  padding: 1.5rem;
   background-color: white;
   border-radius: 4px;
 
-  h4{
+  h4 {
     color: $text-grey;
   }
-  h2{
+
+  h2 {
     color: $blue;
   }
 
+}
+
+@media (max-width: 768px) {
+  .cardwrapper {
+    width: 45%;
+    height: 9rem;
+    padding: 1rem;
+   
+  }
 }

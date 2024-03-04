@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useRef,useState } from "react";
 import "./nav.scss"
 import Logo from '../../assets/logo.svg';
 import search from '../../assets/search.svg';
@@ -8,14 +8,23 @@ import briefcase from '../../assets/briefcase.svg';
 import home from '../../assets/home.svg';
 import { Input } from "../Input/input";
 import Navdata from "./navdata"
-
+import { useClickAway } from "react-use";
+import { Squash as Hamburger } from "hamburger-react";
 
 
 export const Nav: React.FC = () => {
+    const [isOpen, setOpen] = useState(false);
+    const ref = useRef(null);
+     useClickAway(ref, () => setOpen(false));
     return (
-        <div className="navContainer">
+        <div ref={ref} className="navContainer">
             <div className="logoSearch">
-                <img src={Logo} alt="" />
+                <img src={Logo} alt="" className="img" />
+                <div className="mobile">
+
+                <Hamburger toggled={isOpen} size={20} toggle={setOpen}  />
+                {isOpen && (<SideNav/>)}
+                </div>
 
                 <div className="form-field">
                     <Input type="text" className="input2" placeholder="saerch for anything" />
@@ -37,9 +46,14 @@ export const Nav: React.FC = () => {
     )
 }
 
-export const SideNav: React.FC = () => {
+interface SideNavProps {
+    id?: string;
+}
+
+export const SideNav: React.FC<SideNavProps> = ({id}) => {
     return (
-        <div className="sideNav">
+        <div className="sideNav" id={id}>
+             <img className="imgs" src={Logo} alt="" />
             <NavItem src={briefcase} children={"switch Organizations"} />
             <NavItem src={home} children={"Dashboard"} />
             <h6> CUSTOMERS</h6>

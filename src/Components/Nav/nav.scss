@@ -15,6 +15,10 @@
             width: 144px;
         }
 
+        .mobile {
+            display: none;
+        }
+
         .form-field {
 
             @include flex(row, space-between, center);
@@ -86,7 +90,11 @@
     overflow-y: scroll;
     background-color: white;
 
-    h6{
+    .imgs {
+        display: none;
+    }
+
+    h6 {
         color: $blue;
         font-weight: normal;
     }
@@ -96,7 +104,7 @@
         padding: 0;
         margin: 0;
 
-        
+
     }
 
     .navitem {
@@ -104,8 +112,68 @@
         color: $blue;
         margin-block: 20px;
         @include flex(row, flex-start, center);
-        img{
+
+        img {
             margin-right: 10px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .navContainer {
+        .logoSearch {
+            width: 60%;
+
+            .mobile {
+                display: block;
+            }
+
+            .img {
+                display: none;
+            }
+
+            .form-field {
+                width: 80%;
+            }
+        }
+
+        .avatarGroup {
+            width: 40%;
+            a{
+                display: none;
+            }
+            img{
+                display: none;
+            }
+            .avatar{
+                img{
+                    display: block;
+                }
+            }
+        }
+    }
+
+
+    .sideNav {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 4.0rem;
+        width: 100%;
+        height: 89vh;
+
+        .imgs {
+            display: flex;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .navitem {
+            margin-block: 10px;
+
+            img {
+                width: 1.5rem;
+            }
         }
     }
 }
