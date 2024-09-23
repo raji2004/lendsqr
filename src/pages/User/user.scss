@@ -13,6 +13,11 @@
     width: 100%;
     @include flex(row, space-between, center);
 
+    @media (max-width: 767px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .blacklist {
         color: #E4033B;
         border: 1px solid #E4033B;
@@ -22,6 +27,11 @@
         width: 30%;
         display: flex;
         gap: 15px;
+
+        @media (max-width: 767px) {
+            width: 100%;
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -32,7 +42,6 @@
     width: 100%;
 
     .tabs-container {
-
         .tab-head-container {
             @include flex(column, center, center);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -48,16 +57,40 @@
                 gap: 2rem;
                 width: 100%;
 
+                @media (max-width: 767px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 1rem;
+                }
+
                 div {
                     display: flex;
                     flex-direction: column;
                     width: fit-content;
-                }
 
+                    @media (max-width: 767px) {
+                        width: 100%;
+                    }
+                }
+                .rating{
+                    display: flex;
+                    flex-direction: column;
+                    width: fit-content;
+                    align-items: center;
+                    @media (max-width: 767px) {
+                        width: 100%;
+                        align-items: start !important;
+                       
+                    } 
+                }
                 .line {
                     background-color: #545f7d65;
                     width: .08rem;
                     height: 5rem;
+
+                    @media (max-width: 767px) {
+                        display: none;
+                    }
                 }
 
                 h2 {
@@ -68,8 +101,6 @@
                 p {
                     color: #545F7D;
                 }
-
-
             }
 
             .tabs-list {
@@ -80,9 +111,16 @@
                 display: grid;
                 grid-template-columns: repeat(6, 1fr);
                 padding: 8px 0;
-
                 border-bottom-left-radius: 8px;
                 border-bottom-right-radius: 8px;
+
+                @media (max-width: 767px) {
+                    position: static;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    margin-top: 1rem;
+                }
 
                 .tabs-trigger {
                     font-size: 0.875rem;
@@ -102,6 +140,11 @@
                         color: #39CDCC;
                         border-bottom: 3px solid #39CDCC;
                         border-radius: 2px;
+                    }
+
+                    @media (max-width: 767px) {
+                        flex: 1 1 auto;
+                        min-width: 33.33%;
                     }
                 }
             }
@@ -123,6 +166,7 @@
                 border-bottom: 1px solid #545f7d65;
                 padding-left: 1rem;
                 padding-bottom: 1rem;
+
                 h4 {
                     font-size: 16px;
                     color: #213F7D;
@@ -132,28 +176,41 @@
                 .itemlist {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
-                    gap: 1rem; 
+                    gap: 1rem;
+
+                    @media (max-width: 1199px) {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+
+                    @media (max-width: 991px) {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+
+                    @media (max-width: 575px) {
+                        grid-template-columns: repeat(1, 1fr);
+                    }
+
                     .item {
-                        border-radius: 4px; 
+                        border-radius: 4px;
                         display: flex;
-                        flex-direction: column; 
+                        flex-direction: column;
                         justify-content: flex-start;
+
                         h5 {
                             font-weight: 400;
                             color: #545F7D;
                             margin-bottom: 0.5rem;
                         }
-                
+
                         p {
                             font-size: 16px;
                             color: #213F7D;
                             margin-bottom: 1rem;
-                            flex-grow: 1; 
+                            flex-grow: 1;
                         }
                     }
                 }
             }
-
         }
     }
 }

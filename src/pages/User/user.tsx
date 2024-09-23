@@ -79,7 +79,7 @@ export const User = () => {
                                             <p className="user-title">LSQFf587g90r</p>
                                         </div>
                                         <div className="line"></div>
-                                        <div style={{ alignItems: 'center' }}>
+                                        <div className="rating" >
                                             {/* <p className="loan-amount">Loan Amount: ₦1,500,000</p> */}
                                             <p>{"User’s Tier"}</p>
                                             <StarRating maxRating={3} rating={1} />
