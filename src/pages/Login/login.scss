@@ -1,25 +1,21 @@
 @import '../../App.scss';
 
-
-
-
 .login {
     @include flex(row, space-between, center);
     padding: 0 50px;
+    position: relative; // Add this to create a positioning context
 
-
+    .logo {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        z-index: 10;
+    }
 
     .left {
         @include flex(column, center, center);
         width: 50%;
         height: 100vh;
-
-
-        .logo {
-            margin-bottom: 30px;
-            align-self: flex-start;
-            justify-self: flex-start;
-        }
     }
 
     .right {
@@ -56,10 +52,17 @@
         padding: 0 20px;
         height: 100vh;
 
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
         .left {
             width: 100%;
             height: fit-content;
             padding: 20px 10px;
+            padding-top: 80px; // Add space for the logo
 
             .img {
                 display: none;
@@ -70,7 +73,6 @@
             width: 100%;
             padding: 0 10px;
             margin-bottom: 70%;
-
         }
     }
 }
