@@ -1,6 +1,6 @@
 import "./home.scss";
 import { Nav, SideNav, Card, Table, TableRow } from "../../Components";
-import { useId, useState,useEffect } from "react";
+import { useId, useState, useEffect } from "react";
 import { useQuery } from 'react-query';
 import axios, { AxiosResponse } from 'axios';
 import userpink from "../../assets/userpink.svg";
@@ -8,9 +8,10 @@ import activerusers from "../../assets/activeusers.svg";
 import userloans from "../../assets/userloans.svg";
 import usersavings from "../../assets/usersavings.svg";
 import tableData from "../../Components/Table/tabledata";
-import { TailSpin } from "react-loader-spinner";
+
 import { cardDataType, ApiResponse, UserData } from '../../types'
 import ReactPaginate from "react-paginate";
+import { FadeLoader, } from "react-spinners";
 
 
 
@@ -39,13 +40,13 @@ const cardData: cardDataType[] = [
 
 
 const items: number[] = [];
-const itemsPerPage:number = 10
+const itemsPerPage: number = 10
 
-for(let i=0; i< 100; i++) { items.push(1) }
+for (let i = 0; i < 100; i++) { items.push(1) }
 
 export const Home: React.FC = () => {
   const [sideBarIsShowing, setSideBarIsShowing] = useState<boolean>(false);
-  const [currentItems, setCurrentItems] = useState<UserData[]| null|undefined>(null);
+  const [currentItems, setCurrentItems] = useState<UserData[] | null | undefined>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -56,7 +57,6 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(data?.data.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, data?.data]);
@@ -82,18 +82,18 @@ export const Home: React.FC = () => {
               <Card key={index} title={card.title} icon={card.icon} content={card.content} />
             ))}
           </div>
-          <div className="mycontainer">
-            <Table th={['Organization', 'Username', 'Email', 'Phone Number', 'Date Joined', 'Status']} itemsPerPage={10}>
-              {currentItems?.map((data, index) => (
-                <TableRow key={index} organization={data.orgName} username={data.userName} email={data.email} phoneNumber={data.phoneNumber} dateJoined={data.createdAt} />
+          <div className="mycontainer" style={isLoading?{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'center', height: '100dvh' } :{}}>
+            {isLoading ? <FadeLoader color="#213F7D" /> : (<Table th={['Organization', 'Username', 'Email', 'Phone Number', 'Date Joined', 'Status']} itemsPerPage={10}>
+              {currentItems?.map((data) => (
+                <TableRow key={data.id} id={data.id} organization={data.orgName} username={data.userName} email={data.email} phoneNumber={data.phoneNumber} dateJoined={data.createdAt} />
               ))}
-            </Table>
+            </Table>)
+            }
 
-            
           </div>
-          
-        
-          <ReactPaginate
+
+
+          {!isLoading && (<ReactPaginate
             nextLabel=">"
             onPageChange={handlePageClick}
             pageRangeDisplayed={1}
@@ -112,7 +112,7 @@ export const Home: React.FC = () => {
             containerClassName="pagination"
             activeClassName="active"
             renderOnZeroPageCount={undefined}
-          /> 
+          />)}
         </div>
       </div>
     </div>

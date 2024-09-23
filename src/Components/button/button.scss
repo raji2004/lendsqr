@@ -24,3 +24,30 @@
         border: none;
     }
 }
+
+.outline{
+    background-color: transparent;
+    color: #39CDCC;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    border: 1px solid #39CDCC;
+
+    font-weight: 500;
+
+    &:hover,
+    &:focus-visible {
+        border: none;
+    }
+}
